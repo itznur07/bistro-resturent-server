@@ -104,6 +104,12 @@ async function run() {
       res.send(result);
     });
 
+    app.post("/menu", async (req, res) => {
+      const item = req.body;
+      const result = await menuCollection.insertOne(item);
+      res.send(result);
+    });
+
     /** Delete Oparetions */
     app.delete("/carts/:id", async (req, res) => {
       const id = req.params.id;
